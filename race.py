@@ -11,19 +11,16 @@ import math
 import csv
 from flask import Flask
 import string
-app = Flask(__name__)
-@app.after_request
+import words as werds
+
+
 def treat_as_plain_text(response):
     response.headers["content-type"] = "text/plain"
     return response
-#generate a horse
-#you are sitting in a factory. you see lots of horse parts. you start assembling them.
-#DAYS LATER
-#you have 8 horses. some are assembled incorrectly, like a leg sticking out of their head, or two heads, or multiple tails, or extra legs. you can't rush art, man.
-#their names are:
 
-#why do people give their horses such goofy names? the world may never know.
-#suddenly, they start forming a group and acting impatient. you get the impression they would like to compete. alright then.
+
+app = Flask(__name__)
+@app.after_request
 
 class horse:
     def pickaname(loops):
@@ -66,7 +63,9 @@ def race():
     matches = []
     last = ''
 
-    total = []
+    total = ['you are sitting in a factory. you see lots of horse parts. you start assembling them.','*time passes*\n\ndays later...',
+             'you have 8 horses. some are assembled incorrectly, like a leg sticking out of their head, or two heads, or multiple tails, or extra legs. you can\'t rush art, man.',
+             'why do people give their horses such goofy names? the world may never know.','suddenly, they start forming a group and acting impatient. you get the impression they would like to compete. alright then.']
     print('These are your horses:')
     total.append('These are your horses.\n')
     for each in horselist:
